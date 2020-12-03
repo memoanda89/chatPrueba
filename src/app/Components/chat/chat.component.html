@@ -1,0 +1,28 @@
+<div class="fixed-top topBar" >
+    <div class="d-flex ">
+       
+        <div class="p-2 " class="labelTotal">Usuarios conectados: {{total}}</div>
+      </div>
+</div>
+<div class="messageMarging">
+<div *ngFor="let a of myMessages"  >
+    <div class="d-flex  mb-4" [ngClass]="{'justify-content-end ': a.user == userChat.user}" >
+            <div class="msg_cotainer_send" [ngClass]="{'msg_sender': a.user == userChat.user}" >
+                {{a.text}}
+              <span class="msg_user_send">{{a.user}}</span>
+            </div>
+    </div>                                                             
+</div>
+</div>
+
+  <div class="fixed-bottom " >
+    <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">
+            <input type="text"  class="form-control" (change)="myMessage()" [(ngModel)]="userChat.text" placeholder="escribe un mensaje aqui">
+        </div>
+        <div class="p-2 bd-highlight">
+            <button type="button" class="btn btn-primary">Enviar</button>
+        </div>
+      
+      </div>
+  </div>
